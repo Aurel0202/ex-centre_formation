@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Sortie visiteur</title>
+  <link rel="stylesheet" href="css/form-sortie.css">
+  <script src="js/form-sortie.js" defer></script>
+</head>
+<body>
+    <a href="index.html">Retour au formulaire d'entrée</a>
+
+  <div class="container">
+    <h2>Formulaire de sortie visiteur</h2>
+
+    <form id="sortieForm">
+      <label for="email">Email du visiteur</label>
+      <input type="email" id="email" name="email" required placeholder="ex: nom@exemple.com" />
+
+      <div class="ou">OU</div>
+
+      <label for="qrCode">QR Code (ID unique)</label>
+      <input type="text" id="qrCode" name="qrCode" placeholder="Scan ou saisie du QR code" />
+
+      <button type="submit">Valider la sortie</button>
+    </form>
+
+    <div id="message"></div>
+  </div>
+
+</body>
+</html>
+
