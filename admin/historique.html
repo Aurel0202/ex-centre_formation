@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Historique des visites</title>
+  <link rel="stylesheet" href="../css/admin.css">
+  <script type="module" src="../js/admin/historique.js" defer></script>
+</head>
+<body>
+    <a href="dashboard.html">Retour Dashboard</a>
+  <div class="container">
+    <h1>Historique des visites</h1>
+
+    <form id="filtreForm">
+      <label for="date">Filtrer par date :</label>
+      <input type="date" id="date" name="date">
+      <button type="submit">Filtrer</button>
+      <button type="button" id="resetBtn">Réinitialiser</button>
+    </form>
+
+    <table id="tableVisites">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Type</th>
+          <th>Date entrée</th>
+          <th>Date sortie</th>
+          <th>Local</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td colspan="4">Chargement des données...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

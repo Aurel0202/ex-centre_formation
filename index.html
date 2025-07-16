@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Formulaire d’entrée visiteur</title>
+    <link rel="stylesheet" href="css/form-enter.css" />
+    <script type="module" src="js/form-entrer.js" defer></script>
+    <script type="module" src="js/get-form-pers.js" defer></script>
+    <script type="module" src="js/config-api.js" defer></script>
+    <script type="module" src="js/deja-inscrit.js" defer></script>
+  </head>
+  <body>
+    <a href="sortie.html">Aller au formulaire de sortie</a>
+
+    <div class="container" id="boitePrincipale">
+      <h2 id="titreFormulaire">Formulaire d’entrée visiteur</h2>
+
+      <form id="visiteForm" method="POST" class="form-section">
+        <label for="nom">Nom</label>
+        <input type="text" name="nom" id="nom" required />
+
+        <label for="prenom">Prénom</label>
+        <input type="text" name="prenom" id="prenom" required />
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required />
+
+        <label for="objet">Objet de la visite</label>
+        <select name="objet" id="objet" required>
+          <option value="">-- Sélectionner --</option>
+          <option value="personnel">Personnel</option>
+          <option value="formation">Formation</option>
+        </select>
+
+        <div id="select-personnel" class="hidden">
+          <label for="personnel">Choisir un membre du personnel</label>
+          <select name="personnel_id" id="personnel">
+            <option value="">-- Sélectionner --</option>
+          </select>
+        </div>
+
+        <div id="select-formation" class="hidden">
+          <label for="formation">Choisir une formation</label>
+          <select name="formation_id" id="formation">
+            <option value="">-- Sélectionner --</option>
+          </select>
+        </div>
+
+        <button type="submit">Valider l’entrée</button>
+      </form>
+
+      <div id="message"></div>
+    </div>
+    <p id="lienDejaInscrit">
+      Déjà inscrit ?
+      <a href="#" id="toggleConnexion">Cliquez ici pour vous connecter</a>
+    </p>
+
+    <div id="connexionZone" class="hidden" class="hidden form-section">
+      <h3>Connexion rapide</h3>
+      <form id="connexionForm">
+        <label for="emailCo">Votre email</label>
+        <input
+          type="email"
+          id="emailCo"
+          name="email"
+          placeholder="ex: nom@exemple.com"
+          required
+        />
+
+        <label for="qrCo">QR Code (optionnel)</label>
+        <input
+          type="text"
+          id="qrCo"
+          name="qrCode"
+          placeholder="Coller ou scanner le code"
+        />
+
+        <button type="submit">Se connecter</button>
+      </form>
+      <div id="connexionMessage"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard Admin - Qui est là ?</title>
+  <link rel="stylesheet" href="../css/admin.css" />
+  <script type="module" src="../js/admin/admin.js" defer></script>
+</head>
+<body>
+  <div class="admin-container">
+    
+    <!-- Barre latérale -->
+    <nav class="sidebar">
+      <h2>Admin</h2>
+      <ul>
+        <li><a href="#" data-section="accueil">🏠 Accueil</a></li>
+        <li><a href="#" data-section="present">👀 Présents</a></li>
+        <li><a href="historique.html">📅 Historique</a></li>
+        <li><a href="#">⚙️ Paramètres</a></li>
+      </ul>
+    </nav>
+
+    <!-- Contenu principal -->
+    <main class="main-content">
+      <section id="accueil" class="section active">
+        <h1>Bienvenue dans le dashboard</h1>
+        <p>Choisissez une section dans le menu pour commencer.</p>
+      </section>
+
+      <section id="present" class="section hidden">
+        <h1>Personnes actuellement présentes</h1>
+        <div id="presenceZone">
+          Chargement des présences en temps réel...
+        </div>
+      </section>
+    </main>
+
+  </div>
+</body>
+</html>
