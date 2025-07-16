@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("✅ Réponse mise à jour :", updateResult);
 
       if (updateResponse.ok) {
-        message.textContent = `✅ Sortie enregistrée pour ${visiteur.title.rendered}`;
+        message.textContent = `✅ Sortie enregistrée `;
       } else {
         message.textContent = `❌ Erreur lors de la mise à jour : ${
           updateResult.message || "inconnue"
