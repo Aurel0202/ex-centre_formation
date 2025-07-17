@@ -1,7 +1,8 @@
-// form-entrer.js
+// Ce fichier gère le chargement des listes de personnels et de formations, ainsi que l'affichage conditionnel des champs selon l'objet de la visite
+
 import { ENDPOINTS } from "./config-api.js";
 
-// Chargement des personnels
+// Fonction pour charger la liste des membres du personnel depuis l'API
 async function chargerPersonnels() {
   try {
     const response = await fetch(ENDPOINTS.personnels);
@@ -23,7 +24,7 @@ async function chargerPersonnels() {
   }
 }
 
-// Chargement des formations
+// Fonction pour charger la liste des formations depuis l'API
 async function chargerFormations() {
   try {
     const response = await fetch(ENDPOINTS.formations);
@@ -44,7 +45,8 @@ async function chargerFormations() {
   }
 }
 
-// Gestion dynamique du formulaire
+// Évènement sur le champ "Objet de la visite" : affiche/masque les bons champs en fonction du choix
+// Si l'utilisateur choisit "personnel" ou "formation"
 document.getElementById("objet").addEventListener("change", (e) => {
   const valeur = e.target.value;
   const divPerso = document.getElementById("select-personnel");
@@ -68,6 +70,7 @@ document.getElementById("objet").addEventListener("change", (e) => {
     personnelSelect.removeAttribute("required");
     personnelSelect.value = "";
   } else {
+    // Aucun objet choisi, tout masquer
     divPerso.classList.add("hidden");
     divForm.classList.add("hidden");
 
@@ -78,8 +81,8 @@ document.getElementById("objet").addEventListener("change", (e) => {
   }
 });
 
-// Initialisation
+// Une fois que la page est chargée, on lance les chargements de données
 window.addEventListener("DOMContentLoaded", () => {
   chargerPersonnels();
   chargerFormations();
-});
+}); 
