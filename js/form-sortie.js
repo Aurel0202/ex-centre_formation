@@ -25,8 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         : `${
             ENDPOINTS.visiteurs
           }?meta_key=email-visiteur&meta_value=${encodeURIComponent(email)}`;
-
-      console.log("🔍 Requête visiteur :", searchURL);
+          
       const searchRes = await fetch(searchURL);
       if (!searchRes.ok)
         throw new Error(
@@ -41,13 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const visiteur = visiteurs[0];
       const visiteurId = visiteur.id;
-      console.log(
-        `✅ Visiteur trouvé : ${visiteur.title.rendered} (ID : ${visiteurId})`
-      );
-
       // 2. Récupérer ses visites
       const visitesURL = `${ENDPOINTS.visites}?acf.visiteur=${visiteurId}&orderby=date&order=desc`;
-      console.log("🔍 Requête visites :", visitesURL);
 
       const visitesResponse = await fetch(visitesURL);
       if (!visitesResponse.ok)
@@ -61,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
       // 3. Chercher la dernière entrée sans sortie
       const entreeActive = visites.find((v) => {
         const sortie = v.acf?.date_sortie || v.fields?.date_sortie;
-        console.log(`🧪 Visite ${v.id} - sortie: ${sortie}`);
 
         return !sortie || sortie === "" || sortie === null;
       });
@@ -82,8 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       const updateURL = `${ENDPOINTS.visites}/${entreeActive.id}`;
-      console.log("🔄 Requête PUT :", updateURL, updateSortie);
-
       const updateResponse = await fetch(updateURL, {
         method: "PUT",
         headers: getAuthHeader(),
@@ -91,7 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       const updateResult = await updateResponse.json();
-      console.log("✅ Réponse mise à jour :", updateResult);
 
       if (updateResponse.ok) {
         message.textContent = `✅ Sortie enregistrée `;

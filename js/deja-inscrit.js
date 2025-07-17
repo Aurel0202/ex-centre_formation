@@ -52,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const visiteur = data[0];
-      console.log("🧾 Visiteur trouvé :", visiteur);
 
       const nom = visiteur.fields?.["nom-visiteur"] ?? visiteur.nom;
       const prenom = visiteur.fields?.["prenom-visiteur"] ?? visiteur.prenom;

@@ -10,16 +10,13 @@ document.getElementById('visiteForm').addEventListener('submit', async (e) => {
   const prenom = formData.get('prenom');
   const personnel = formData.get('personnel_id') || null
   const formation = formData.get('formation_id') || null
-console.log(personnel, formation)
+
 const motif = (personnel) ? personnel : formation
   try {
     // 1. Chercher un visiteur par email
     const searchURL = `${ENDPOINTS.visiteurs_email}${encodeURIComponent(email)}`;
-    console.log(searchURL)
     const searchResponse = await fetch(searchURL);
-    console.log(searchResponse.status)
     const existing = await searchResponse.json();
-    console.log(existing)
     let visiteurId;
 
     if (existing.length > 0) {
@@ -38,7 +35,6 @@ const motif = (personnel) ? personnel : formation
           "cle_unique": crypto.randomUUID()
         }
       }
-console.log(newVisiteur)
 
       const createResponse = await fetch(ENDPOINTS.visiteurs, {
         method: 'POST',
@@ -48,7 +44,6 @@ console.log(newVisiteur)
 
       const created = await createResponse.json();
       visiteurId = created.id;
-      console.log(visiteurId)
     }
 
     // 3. Préparer la visite

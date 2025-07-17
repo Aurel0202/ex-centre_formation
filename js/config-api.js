@@ -1,28 +1,20 @@
-// config.js
-const mdp_api_visite = 'IBEX 2gS1 fffu vDhp FoKa 2XAQ'
-export const API_BASE_URL = 'https://ingrwf12.cepegra-frontend.xyz/wp_aurelie/wp-json/wp/v2';
-export const API_CUSTOM = 'https://ingrwf12.cepegra-frontend.xyz/wp_aurelie/wp-json/custom/v1'
+// config-api.js
+const mdp_api_visite = 'IBEX 2gS1 fffu vDhp FoKa 2XAQ';
 
-// Endpoints
+export const API_BASE_URL = 'https://ingrwf12.cepegra-frontend.xyz/wp_aurelie/wp-json/wp/v2';
+export const API_CUSTOM = 'https://ingrwf12.cepegra-frontend.xyz/wp_aurelie/wp-json/custom/v1';
+
 export const ENDPOINTS = {
-  formations: `${API_BASE_URL}/formation?per_page=100`,
-  personnels: `${API_BASE_URL}/membre-du-personnel?per_page=100`,
+  formations: `${API_BASE_URL}/formation`,
+  personnels: `${API_BASE_URL}/membre-du-personnel`,
   visites: `${API_BASE_URL}/visite`,
   visiteurs: `${API_BASE_URL}/visiteur`,
-  visiteurs_email: `${API_CUSTOM}/person-par-email?email=`
+  visiteurs_email: `${API_CUSTOM}/person-par-email?email=`,
+  users: `${API_BASE_URL}/users`
 };
 
-// Identifiants pour POST (si auth requise)
-export const AUTH = {
-  username: 'aurelie',
-  password: `${mdp_api_visite}`
-};
-
-// Fonction utilitaire pour créer l'en-tête d'authentification
+// 🔐 Fonction unique pour header après login
 export function getAuthHeader() {
-  const token = btoa(`${AUTH.username}:${AUTH.password}`);
-  return {
-    'Authorization': `Basic ${token}`,
-    'Content-Type': 'application/json'
-  };
+  const token = localStorage.getItem('auth');
+  return token ? { 'Authorization': `Basic ${token}`, 'Content-Type': 'application/json' } : {};
 }
