@@ -1,5 +1,5 @@
 // config-api.js
-const mdp_api_visite = 'IBEX 2gS1 fffu vDhp FoKa 2XAQ';
+const mdp_api_visite = 'IBEX2gS1fffuvDhpFoKa2XAQ';
 
 export const API_BASE_URL = 'https://ingrwf12.cepegra-frontend.xyz/wp_aurelie/wp-json/wp/v2';
 export const API_CUSTOM = 'https://ingrwf12.cepegra-frontend.xyz/wp_aurelie/wp-json/custom/v1';
