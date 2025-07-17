@@ -82,4 +82,4 @@ document.getElementById('visiteForm').addEventListener('submit', async (e) => {
     console.error(error);
     document.getElementById('message').textContent = 'Erreur lors de l\'enregistrement.';
   }
-});
+}); 

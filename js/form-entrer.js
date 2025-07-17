@@ -85,4 +85,4 @@ document.getElementById("objet").addEventListener("change", (e) => {
 window.addEventListener("DOMContentLoaded", () => {
   chargerPersonnels();
   chargerFormations();
-});
+}); 

@@ -82,4 +82,4 @@ document.addEventListener("DOMContentLoaded", () => {
       message.textContent = "Une erreur est survenue.";
     }
   });
-});
+}); 
